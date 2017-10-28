@@ -1,4 +1,4 @@
-
+/*
 var React = require('react');
 import Atom from './models/Atom.js';
 //import Bond from './models/Bond';
@@ -78,3 +78,4 @@ var createAtomChooser = function (targetEl) {
 };
 
 export default createAtomChooser;
+*/

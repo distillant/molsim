@@ -1,5 +1,7 @@
-var state={
-    defaultBondColor:"yellow"
+var getInitialState = function () {
+    return {
+        defaultBondColor:"yellow"
+    };
+}
 
-};
-export default state;
+export default getInitialState;

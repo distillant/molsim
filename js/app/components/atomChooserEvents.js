@@ -8,4 +8,5 @@ var AtomDropEventHandler=function(event){
     let postionX=event.currentTarget.offsetLeft;
     let postionY=event.currentTarget.offsetTop;
    // var System.addAtom(element,{position:{x:postionX,y:postionY,z:0}});
+
 }
