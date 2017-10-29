@@ -5,10 +5,12 @@ var getInitialState = function () {
         },
         sceneSettings: {
             camera: {
+                type:"PerspectiveCamera",
                 depthOfField: 75,
                 ratio: (5 / 7), //made to be overridden
                 near: .1,
-                far: 1000
+                far: 1000,
+                position:{x:0, y:10, z: 40 }
             },
             lights: [
                 {

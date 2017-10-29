@@ -6,33 +6,33 @@ import React, { Component } from 'react';
 import './App.css';
 
 class SystemComponent extends Component {
-    render() {
-        return (
-            <div className="System">
 
-            </div>
-
-        );
-    }
-    setupScene() {
+    setupScene(props) {
+        const targetElementId=props.targetElementId;
+        const sceneSettings =props.sceneSettings;
         var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var c1=sceneSettings.camera;
+        const PERSPECTIVE=window.innerWidth / window.innerHeight;
 
-        var light = new THREE.AmbientLight(0xffffff,.5);
-        var light1 = new THREE.PointLight(0xffffff,.5);
+        var camera = new THREE.PerspectiveCamera(c1.depthOfField, PERSPECTIVE, c1.near, c1.far);
+        camera.setPosition(c1.position.x,c1.position.y,c1.position.z)
+        scene.add(camera);
 
-        scene.add(light);
-        scene.add(light1);
-        light1.position.set(200,200,200);
-
+        sceneSettings.lights.forEach(function(light)
+        {
+            var light=new THREE[light.type](light.color,light.intensity);
+            if (light.position)
+            {
+                light.position.set(light.position.x,light.position.y,light.position.z);
+            }
+            scene.add(light);
+        });
 
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        camera.position.x = 0;
-        camera.position.y = 10;
-        camera.position.z = 40;
+
 
         var render = function () {
             requestAnimationFrame(render);

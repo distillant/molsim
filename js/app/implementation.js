@@ -23,8 +23,8 @@ var getSampleMolecule=function(){
     molecule.addBond(bond1);
     return molecule;
 }
-var firstTest = function(targetEl) {
-    var system = new System(targetEl);
+var firstTest = function(state,targetEl) {
+    var system = new System({sceneSettings:state.sceneSettings, targetElementId:targetEl});
     system.addMolecule(getSampleMolecule());
     system.render();
     return system;
