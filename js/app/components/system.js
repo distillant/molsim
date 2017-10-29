@@ -43,6 +43,7 @@ class SystemComponent extends Component {
             scene.add(molecule.group);
         }
 
+
     }
     update()
 }

@@ -25,6 +25,7 @@ var System = function (targetElementId) {
     camera.position.y = 10;
     camera.position.z = 40;
 
+    this.scene=scene;
     var render = function () {
         requestAnimationFrame(render);
         renderer.render(scene, camera);
@@ -32,6 +33,11 @@ var System = function (targetElementId) {
     this.render = render;
     this.addMolecule = function (molecule) {
         scene.add(molecule.group);
+    }
+    this.addAtom = function (atom) {
+        scene.add(atom.view.mesh);
+        this.render();
+
     }
 };
 export default System;

@@ -2,6 +2,8 @@ import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import ELEMENTS from '../data/ELEMENTS';
 import Sphere2D from '../views/Sphere2D';
+
+import dropAtomHandler from './atomChooserEvents';
 /*
 var createChildren= (n) => { ELEMENTS.map(function(element, index){
     return(<Sphere2D key={index} data={element}></Sphere2D>)
@@ -11,7 +13,7 @@ var createChildren= (n) => { ELEMENTS.map(function(element, index){
 var Test= React.createClass ({
     getInitialState: function() {  return {activeItemIndex : 8,
         children:ELEMENTS.map(function(element, index){
-            return(<Sphere2D key={index} data={element}></Sphere2D>)
+            return(<Sphere2D key={index} onclick={function(event){dropAtomHandler(event, element)}}  data={element}></Sphere2D>)
         })
     }; },
 

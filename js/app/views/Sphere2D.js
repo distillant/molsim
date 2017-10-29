@@ -11,7 +11,7 @@ var Sphere2D =React.createClass({
         else
             style={};
         return (
-            <section className="stage" onclick={this.props.onclick}>
+            <section className="stage" onClick={this.props.onclick}>
                 <div>
                     <div className="atomic-number-display">{this.props.data.atomicNumber}</div>
                     <div className="atom-chooser-element-symbol">{this.props.data.symbol}</div>
