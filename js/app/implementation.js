@@ -4,7 +4,11 @@ import System from  './models/System';
 import Bond from  './models/Bond';
 import ELEMENTS from './data/ELEMENTS';
 
+import assembleMolecule from './models/assembleMolecule';
+/*
+
 var getSampleMolecule=function(){
+
     var molecule=new Molecule();
     var atom0= new Atom(ELEMENTS[0]);
     atom0.updatePosition(0,-14,0);
@@ -22,10 +26,15 @@ var getSampleMolecule=function(){
     molecule.addAtom(atom2);
     molecule.addBond(bond1);
     return molecule;
-}
+}*/
+
 var firstTest = function(state,targetEl) {
     var system = new System({sceneSettings:state.sceneSettings, targetElementId:targetEl});
-    system.addMolecule(getSampleMolecule());
+    //system.addMolecule(getSampleMolecule());
+    var molecule=assembleMolecule(state.defaultMolecule);
+    system.addMolecule(molecule);
+    system.molecule=molecule;
+
     system.render();
     return system;
 };

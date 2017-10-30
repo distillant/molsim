@@ -13,12 +13,12 @@ var System = function (props) {
         camera.position.z = c1.position.z;
         scene.add(camera);
 
-        sceneSettings.lights.forEach(function(light)
+        sceneSettings.lights.forEach(function(lightItem)
         {
-            var light=new THREE[light.type](light.color,light.intensity);
-            if (light.position)
+            var light=new THREE[lightItem.type](lightItem.color,lightItem.intensity);
+            if (lightItem.position)
             {
-                light.position.set(light.position.x,light.position.y,light.position.z);
+                light.position.set(lightItem.position.x,lightItem.position.y,lightItem.position.z);
             }
             scene.add(light);
         });
