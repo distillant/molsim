@@ -41,7 +41,7 @@ var Test= React.createClass ({
                 enablePlaceholder
                 numberOfPlaceholderItems={5}
                 minimumPlaceholderTime={1000}
-                placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
+                placeholderItem={<div style={{ height: 130, background: '#900' }}>Placeholder</div>}
                 slidesToScroll={4}
                 // Carousel configurations
                 numberOfCards={15}
@@ -56,8 +56,8 @@ var Test= React.createClass ({
                 activePosition={'center'}
 
                 chevronWidth={24}
-                rightChevron={'>'}
-                leftChevron={'<'}
+                rightChevron={<span className="carousel-paging-control"> &gt; </span>}
+                leftChevron={<span className="carousel-paging-control"> &lt; </span>}
                 outsideChevron={false}
             >
                 {this.state.children}

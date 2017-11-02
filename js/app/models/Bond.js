@@ -1,9 +1,16 @@
 //define(['lib/three.min.js'], function (THREE) {
 
-
+var BondVizInfo={length: 10,
+    diameter:.25,
+    horizonalSections: 32,
+    position:{x:0,y:0,Z:0},
+    rotation:{x:0,y:0,Z:0},
+    material:{type:"MeshLambertMaterial", color: 0xF3FF00}
+    }
 
     var Bond = function () {
-        var material = new THREE.MeshLambertMaterial({color: 0xF3FF00});;
+        var initialize=function(){};
+        var material = new THREE.MeshLambertMaterial({color: 0xF3FF00});
         //cyl
         var cylHeight=10
         var cylinder = new THREE.CylinderGeometry(0.25, 0.25, cylHeight, 32);
@@ -20,9 +27,9 @@
             _position.z = _position.z + OffSetZ;
             cylinderMesh.position.set(_position.x, _position.y, _position.z);
         };
-        //cylinderMesh.rotation.x = -0.5*Math.PI;
+        cylinderMesh.rotation.x = -0.5*Math.PI;
         this.rotate=function(radians){
-            cylinderMesh.rotation.y += radians/2;
+            cylinderMesh.rotation.x += radians;
         }
 
     };

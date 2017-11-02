@@ -36,14 +36,17 @@ var getInitialState = function () {
             ]
         },
         defaultMolecule:{
-            atoms:[{elementName:"hydrogen", atomicNumber:1, key:"1"},
-                {elementName:"oxygen", atomicNumber:8, key:"2"},
+            atoms:[,
+                {elementName:"oxygen", atomicNumber:8, key:"1"},
+                {elementName:"hydrogen", atomicNumber:1, key:"2"},
                 {elementName:"carbon", atomicNumber:6, key:"3"}
                 ],
             bonds:[{type:"covalent",magnitude:1, source:"1", dest:"2" },
                 {type:"covalent",magnitude:1, source:"2", dest:"3" }
-            ]
-        }
+            ],
+
+        },
+        displayData:{}
     };
 };
 
