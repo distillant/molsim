@@ -1,15 +1,20 @@
 # molsim
-prototype 3d molecule assembly tool.
-after pulling code from git, install dependencies using:
-npm install
+Prototype 3d molecule assembly tool.
 
-to build code, type:
-npm run webpack
+After pulling code from git, install dependencies using:
 
-if you want to edit code with live reloading type:
-npm run watchit
+`npm install`
 
-Use your browser to open index.html file in the root directory to view the app.
+To build production code, type:
 
-to execute unit tests, type:
-npm test
+`npm run webpack`
+
+Edit code with live reloading type:
+
+`npm run watchit`
+
+Then use your browser to open index.html file in the root directory to view the app.
+
+To execute unit tests, type:
+
+`npm test`
