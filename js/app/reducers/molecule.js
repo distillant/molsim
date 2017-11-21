@@ -14,13 +14,12 @@ const defaultMolecule={
 
 export default function molecule(state = defaultMolecule, action) {
     switch (action.type) {
-        case types.ADD_ATOM:
+        case types.SELECT_ATOM:
             var newMol= state;
-            var newAtom=action.newAtom;
+            var newAtom=action.data;
             newAtom.key=Math.random().toString();
             newMol.atoms.push(newAtom);
-            return new newMol;
-
+            return newMol;
         case types.REMOVE_ATOM:
             return stateat.filter(atom =>
                 atom.id !== action.id

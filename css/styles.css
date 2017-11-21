@@ -39,9 +39,12 @@ canvas {
     border-color: black;
     color: pink;
     margin:5px;
+    font-size: 9px;
 }
 
 #sidepanelSpace {
+    font-size: 9px;
+    overflow-y: auto;
     box-sizing: border-box;
     float: left;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

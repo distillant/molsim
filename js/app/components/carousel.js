@@ -3,7 +3,7 @@ import ItemsCarousel from 'react-items-carousel';
 import ELEMENTS from '../data/ELEMENTS';
 import Sphere2D from '../views/Sphere2D';
 
-import dropAtomHandler from './atomChooserEvents';
+import dropAtomHandler from '../../junk/atomChooserEvents';
 /*
 var createChildren= (n) => { ELEMENTS.map(function(element, index){
     return(<Sphere2D key={index} data={element}></Sphere2D>)

@@ -33,5 +33,8 @@ var sceneSettings= {
 
 
 export default function scene(state = sceneSettings, action) {
-    return state;
+    switch(action) {
+        default:
+            return state;
+    }
 }

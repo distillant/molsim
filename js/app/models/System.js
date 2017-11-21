@@ -34,9 +34,16 @@ var System = function (props) {
             renderer.render(scene, camera);
         };
         this.render = render;
+        this.molecules=[];
         this.addMolecule = function (molecule) {
+            this.molecules.push(molecule)
             scene.add(molecule.group);
         }
+        this.clear = function(){
+            while(this.molecules.length > 0){
+                scene.remove(this.molecules.pop().group);
+            }
+        };
         this.addAtom = function (atom) {
             scene.add(atom.view.mesh);
             this.render();

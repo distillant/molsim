@@ -1,21 +1,16 @@
-import ELEMENTS from '../app/data/ELEMENTS';
-//import _ from 'lodash'
-import Atom from '../app/models/Atom';
-
 var rayCaster,mousePosition;
 
-var setupPlane=function(){
+var setupPlane=function(scene){
     var geometry = new THREE.PlaneGeometry( 200, 30, 32 );
     var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
     //material.transparent = true;
     var plane = new THREE.Mesh( geometry, material );
 
-    window.molSystem.scene.add( plane );
+   scene.add( plane );
     rayCaster = new THREE.Raycaster();
     mousePosition = new THREE.Vector2();
 
-}
-
+};
 
 
 function getClicked3DPoint(evt) {
@@ -31,23 +26,5 @@ function getClicked3DPoint(evt) {
         return intersects[0].point;
 };
 
+export {setupPlane, getClicked3DPoint};
 
-var AtomDropEventHandler=function(event,data){
-    setupPlane();
-    var target=event.target;
-    console.log("dropping elenment", data)
-   // const ATOMICNUMBER=target.currentTarget.data.key
-   // let element=ELEMENTS[ATOMICNUMBER];
-    let postionX=event.currentTarget.offsetLeft;
-    let postionY=event.currentTarget.offsetTop ;
-
-    var atom=new Atom(data);
-    //atom.updatePosition(postionX,postionY,0);
-
-    atom.updatePosition(-30,-10,0);
-    window.molSystem.addAtom(atom);
-    //window.molSystem.addAtom(element,{position:{x:postionX,y:postionY,z:0}});
-
-}
-
-export default  AtomDropEventHandler;
