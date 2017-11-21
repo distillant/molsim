@@ -16,7 +16,8 @@ export default function molecule(state = defaultMolecule, action) {
     switch (action.type) {
         case types.SELECT_ATOM:
             var newMol= state;
-            var newAtom=action.data;
+            //filter out just two keys from element data to use.
+            var newAtom= (({elementName,atomicNumber })=>({elementName:name,atomicNumber }))(action.data);
             newAtom.key=Math.random().toString();
             newMol.atoms.push(newAtom);
             return newMol;

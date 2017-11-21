@@ -1,5 +1,23 @@
+
+require('../../../lib/TrackballControls')
+require('../../../lib/Detector');
+var setupControls=function(camera,eventHandler){
+    var controls = new THREE.TrackballControls( camera );
+    controls.rotateSpeed = 50.0;
+    controls.zoomSpeed = 1.2;
+    controls.panSpeed = 0.8;
+    controls.noZoom = false;
+    controls.noPan = false;
+    controls.staticMoving = true;
+    controls.dynamicDampingFactor = 0.3;
+    controls.keys = [ 65, 83, 68 ];
+    controls.addEventListener( 'change', eventHandler );
+    return controls;
+}
+
 var System = function (props) {
    // setupScene(props) {
+
         var targetEl=document.getElementById(props.targetElementId);
         const sceneSettings =props.sceneSettings;
         var scene = new THREE.Scene();
@@ -12,6 +30,8 @@ var System = function (props) {
         camera.position.y = c1.position.y;
         camera.position.z = c1.position.z;
         scene.add(camera);
+
+
 
         sceneSettings.lights.forEach(function(lightItem)
         {
@@ -34,6 +54,8 @@ var System = function (props) {
             renderer.render(scene, camera);
         };
         this.render = render;
+        var controls=setupControls(camera,function(){render()});
+
         this.molecules=[];
         this.addMolecule = function (molecule) {
             this.molecules.push(molecule)
@@ -49,52 +71,12 @@ var System = function (props) {
             this.render();
 
         }
+        function animate() {
+            requestAnimationFrame( animate );
+            controls.update();
+        }
+        animate();
+        targetEl.appendChild(renderer.domElement);
 
-///////////////
-///// old code below
-/////
-
-
-
-       // var targetEl=document.getElementById(targetElementId)
-   /* var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, targetEl.offsetWidth / targetEl.offsetHeight, 0.1, 1000);
-
-    var light = new THREE.AmbientLight(0xffffff,.5);
-    var light1 = new THREE.PointLight(0xffffff,.5);
-
-    scene.add(light);
-    scene.add(light1);
-    light1.position.set(200,200,200);
-
-
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(targetEl.offsetWidth, targetEl.offsetHeight);
-*/
-
-    /**********************************
-     ET HUM! Magic Starts below
-     *********************************/
-
-    targetEl.appendChild(renderer.domElement);
-/*
-    camera.position.x = 0;
-    camera.position.y = 10;
-    camera.position.z = 40;
-
-    this.scene=scene;
-    var render = function () {
-        requestAnimationFrame(render);
-        renderer.render(scene, camera);
-    };*/
-    /*this.render = render;
-    this.addMolecule = function (molecule) {
-        scene.add(molecule.group);
-    }
-    this.addAtom = function (atom) {
-        scene.add(atom.view.mesh);
-        this.render();
-
-    }*/
 };
 export default System;
