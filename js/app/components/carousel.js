@@ -11,9 +11,18 @@ var createChildren= (n) => { ELEMENTS.map(function(element, index){
 */
 
 var Test= React.createClass ({
-    getInitialState: function() {  return {activeItemIndex : 8,
+    getInitialState: function() {
+        const selectAtom=this.props.actions.selectAtom;
+        return {activeItemIndex : 8,
         children:ELEMENTS.map(function(element, index){
-            return(<Sphere2D key={index} onclick={function(event){dropAtomHandler(event, element)}}  data={element}></Sphere2D>)
+            return(<Sphere2D
+                    key={index}
+                    onclick={function(event){
+                        selectAtom(element);
+                        //dropAtomHandler(event, element);
+                    }}
+                    data={element}>
+            </Sphere2D>)
         })
     }; },
 
