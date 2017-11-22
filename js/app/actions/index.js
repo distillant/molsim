@@ -5,7 +5,7 @@ export const addAtomToSystem = (atomNum) => ({type:types.ADD_ATOM, atomicNumber:
 
 export const resize = (atomNum) => ({type:types.RESIZE});
 
-
+/* old code for detecting mouse position
 var AtomDropEventHandler=function(event,data){
     setupPlane();
     var target=event.target;
@@ -22,4 +22,4 @@ var AtomDropEventHandler=function(event,data){
     window.molSystem.addAtom(atom);
     //window.molSystem.addAtom(element,{position:{x:postionX,y:postionY,z:0}});
 
-}
+}*/
