@@ -1,6 +1,6 @@
 import * as types from '../constants/atomChooser';
 
-var defaultAtom= {title:"blah"};
+var defaultAtom= {};
 
 export default function selectedAtom (state = defaultAtom, action) {
     switch (action.type) {

@@ -27,9 +27,9 @@ var BondVizInfo={length: 10,
             _position.z = _position.z + OffSetZ;
             cylinderMesh.position.set(_position.x, _position.y, _position.z);
         };
-        cylinderMesh.rotation.x = -0.5*Math.PI;
         this.rotate=function(radians){
-            cylinderMesh.rotation.x += radians;
+            cylinderMesh.rotateZ(-.5*Math.PI+radians);
+
         }
 
     };

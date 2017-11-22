@@ -7,7 +7,7 @@ var Molecule = function () {
 
     var spreadbond=function(bond,source,dest){
         var bondlength=7;
-        var bondAngle=Math.random()*(Math.PI/2);
+        var bondAngle=.333*(Math.PI/2);
         var destvx=bondlength*(Math.cos(bondAngle))
         var destvy=bondlength*(Math.sin(bondAngle))
         var destx=source._position.x + destvx;

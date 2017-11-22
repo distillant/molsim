@@ -2,8 +2,7 @@ import * as types from '../constants/atomChooser';
 
 
 const defaultMolecule={
-    atoms:[,
-        {elementName:"oxygen", atomicNumber:8, key:"1"},
+    atoms:[{elementName:"oxygen", atomicNumber:8, key:"1"},
         {elementName:"hydrogen", atomicNumber:1, key:"2"},
         {elementName:"carbon", atomicNumber:6, key:"3"}
     ],

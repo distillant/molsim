@@ -15,33 +15,39 @@ var setupControls=function(camera,eventHandler){
     return controls;
 }
 
+var addCamera=function(c1, targetEl,scene){
+    const PERSPECTIVE=targetEl.offsetWidth / targetEl.offsetHeight;
+
+    var camera = new THREE.PerspectiveCamera(c1.depthOfField, PERSPECTIVE, c1.near, c1.far);
+    //camera.position(c1.position.x,c1.position.y,c1.position.z)
+    camera.position.x = c1.position.x;
+    camera.position.y = c1.position.y;
+    camera.position.z = c1.position.z;
+    scene.add(camera);
+    return camera;
+}
+var addLights=function(lights,scene){
+    lights.forEach(function(lightItem)
+    {
+        var light=new THREE[lightItem.type](lightItem.color,lightItem.intensity);
+        if (lightItem.position)
+        {
+            light.position.set(lightItem.position.x,lightItem.position.y,lightItem.position.z);
+        }
+        scene.add(light);
+    });
+};
+
 var System = function (props) {
    // setupScene(props) {
 
         var targetEl=document.getElementById(props.targetElementId);
         const sceneSettings =props.sceneSettings;
         var scene = new THREE.Scene();
-        var c1=sceneSettings.camera;
-        const PERSPECTIVE=targetEl.offsetWidth / targetEl.offsetHeight;
 
-        var camera = new THREE.PerspectiveCamera(c1.depthOfField, PERSPECTIVE, c1.near, c1.far);
-        //camera.position(c1.position.x,c1.position.y,c1.position.z)
-        camera.position.x = c1.position.x;
-        camera.position.y = c1.position.y;
-        camera.position.z = c1.position.z;
-        scene.add(camera);
+        addLights(sceneSettings.lights, scene);
+        var camera=addCamera(sceneSettings.camera, targetEl,scene);
 
-
-
-        sceneSettings.lights.forEach(function(lightItem)
-        {
-            var light=new THREE[lightItem.type](lightItem.color,lightItem.intensity);
-            if (lightItem.position)
-            {
-                light.position.set(lightItem.position.x,lightItem.position.y,lightItem.position.z);
-            }
-            scene.add(light);
-        });
         this.scene=scene;
 
         var renderer = new THREE.WebGLRenderer();
