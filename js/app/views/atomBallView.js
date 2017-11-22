@@ -3,7 +3,8 @@ class AtomBallView {
     constructor (options){
         this._material = new THREE.MeshLambertMaterial({color: 0xF3FF00});
         this._radius = options.radius || 2;
-        this._sphere = new THREE.SphereGeometry(this._radius, 20, 20);
+
+        this._sphere = new THREE.SphereGeometry(this._radius, 40, 40);
         this._color= options.color || "white";
         this._material.color.set(this._color);
         this._position = options.position || {x:0,y:0,z:0};
