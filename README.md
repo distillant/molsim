@@ -1,6 +1,7 @@
 # molsim
 Prototype 3d molecule assembly tool. Just an experiment not a finished product.
 You can try the demo here: http://distillant.com/molsim/
+(doesn't support safari well, but its quite smooth on android browser)
 
 To use the code:
 
