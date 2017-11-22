@@ -1,5 +1,8 @@
 # molsim
-Prototype 3d molecule assembly tool.
+Prototype 3d molecule assembly tool. Just an experiment not a finished product.
+You can try the demo here: http://distillant.com/molsim/
+
+To use the code:
 
 After pulling code from git, install dependencies using:
 

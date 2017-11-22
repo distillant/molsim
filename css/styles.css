@@ -43,7 +43,7 @@ canvas {
 }
 
 #sidepanelSpace {
-    font-size: 9px;
+    font-size: 10px;
     overflow-y: auto;
     box-sizing: border-box;
     float: left;

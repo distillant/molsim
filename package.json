@@ -1,8 +1,12 @@
 {
-  "name": "molsim2",
+  "name": "molsim",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/distillant/molsim.git"
+  },
   "scripts": {
     "webpack": "webpack",
     "watchit": "webpack --progress --colors --watch",

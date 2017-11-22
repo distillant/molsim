@@ -6,16 +6,17 @@ import React from 'react';
 //sidebar displays literal data in rows of disabled input boxes
 function sidePanel(props) {
     return(
-        <div>
+        <table>
             { Object.keys(props.data).map((fieldName, index) => {return(
-                <div key={fieldName} >
-                    <span>{fieldName}: </span>
-                    <input disabled="true" id={fieldName} value={props.data[fieldName]}></input>
-                </div>)
+                <tr key={fieldName} >
+                    <td><b>{fieldName}:</b> </td>
+                    <td>{props.data[fieldName]}</td>
+
+                </tr>)
             })
             }
 
-        </div>
+        </table>
     )
 };
 
