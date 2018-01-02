@@ -17,11 +17,13 @@ var assembleMolecule=function(moleculeDef){
         atom.key=atomDef.key;
         molecule.addAtom(atom);
     })
-    moleculeDef.bonds.forEach(function(bondDef){
+    moleculeDef.bonds.forEach(function(bondDef,index){
 
         var bond= new Bond(bondDef);
 
-        molecule.addBond(bond,bondDef.source, bondDef.dest);
+        molecule.addBond(moleculeDef.bonds.length,index, bond,bondDef.source, bondDef.dest);
+
+
     })
     return molecule;
 };

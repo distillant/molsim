@@ -34,16 +34,16 @@ canvas {
 
 }
 
-#sidepanelSpace input {
+/*#sidepanelSpace input {
     background-color: #4c4a4a;
     border-color: black;
     color: pink;
     margin:5px;
     font-size: 9px;
-}
+}*/
 
 #sidepanelSpace {
-    font-size: 10px;
+    font-size: 14px;
     overflow-y: auto;
     box-sizing: border-box;
     float: left;

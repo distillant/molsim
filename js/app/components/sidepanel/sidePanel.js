@@ -7,6 +7,7 @@ import React from 'react';
 function sidePanel(props) {
     return(
         <table>
+            <tbody>
             { Object.keys(props.data).map((fieldName, index) => {return(
                 <tr key={fieldName} >
                     <td><b>{fieldName}:</b> </td>
@@ -15,7 +16,7 @@ function sidePanel(props) {
                 </tr>)
             })
             }
-
+            </tbody>
         </table>
     )
 };

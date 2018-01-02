@@ -27,15 +27,13 @@ var Test= React.createClass ({
     }; },
 
     changeActiveItem: function (newIndex) {
-        console.log("newIndex", newIndex)
         this.setState({activeItemIndex:newIndex});
 
         return this.state;
         },
 
     render: function (){
-        console.log("rendering");
-        console.log("render activeItemIndex", this.state.activeItemIndex)
+
         var that=this;
         var activeItemIndex=that.state.activeItemIndex;
        /*var children=ELEMENTS.map(function(element, index){

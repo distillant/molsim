@@ -18,9 +18,15 @@ export default function molecule(state = defaultMolecule, action) {
             //filter out just two keys from element data to use.
             var newAtom= (({elementName,atomicNumber })=>({elementName:name,atomicNumber }))(action.data);
             //this is temporary for testing purposes
-            newAtom.key="3";
-            newMol.atoms[2]=newAtom;
-            //newMol.atoms.push(newAtom);
+
+            var newIndex=(newMol.atoms.length +1).toString();
+            newAtom.key=newIndex;
+            //newAtom.key="3";
+            //newMol.atoms[2]=newAtom;
+            newMol.atoms.push(newAtom);
+
+            var newBond={type:"covalent",magnitude:1, source:"2", dest:newIndex };
+            newMol.bonds.push(newBond);
             return newMol;
         case types.REMOVE_ATOM:
             return stateat.filter(atom =>

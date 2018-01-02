@@ -40,7 +40,6 @@ var App = React.createClass({
     render: function () {
         var props=this.props.props;
         var actions=this.props.actions;
-        console.log("render app function")
         return (
             <div>
                 <SystemView style={{"width":props.dimensions.contentPanelWidth, "height":props.dimensions.contentPanelHeight}} sceneSettings={props.scene} defaultMolecule={ props.molecule}></SystemView>
